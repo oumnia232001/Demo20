@@ -1,56 +1,57 @@
+# app/controllers/posts_controller.rb
+
 class PostsController < ApplicationController
-	 # before_action :find_post, only: [:show, :update, :edit, :destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
-	def index
-		@posts = Post.all.order("created_at DESC")
-	end
+  def index
+    @posts = Post.all.order("created_at DESC")
+  end
 
-	def new
-		@post = Post.new
-	end
+  def new
+    @post = Post.new
+  end
 
-	def create
-		@post = Post.new(post_params)
+  def create
+    @post = Post.new(post_params)
+    if @post.title.present? && @post.content.present? && @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
+  end
 
-		if @post.save
-			redirect_to @post
-		else
-			render 'new'
-		end
-	end
+  def show
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
 
-	def show
-	end
+  def edit
+    @post = Post.find(params[:id])
+  end
 
-	def update
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
 
-		if @post.update(post_params)
-			redirect_to @post
-		else
-			render 'edit'
-		end
-	end
+    redirect_to posts_path
 
-	def edit
-		@post = Post.find(params[:id])
-	end
+  end
 
-	def destroy
-		@post = Post.find(params[:id])
-		@post.destroy
+  private
 
-		redirect_to posts_path
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-	end
-
-	private
-
-	def post_params
-		params.require(:post).permit(:title, :content)
-	end
-
-	# def find_post
-	# 	@post = Post.find(params[:id])
-	# end
-
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
 end

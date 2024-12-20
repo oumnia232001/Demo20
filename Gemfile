@@ -7,9 +7,11 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 6.1'
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.4'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
@@ -40,9 +42,23 @@ gem 'bulma-rails', '~> 0.6.1'
 # Simple forms
 gem 'simple_form', '~> 5.0'
 
+
+
+###
+gem 'mutex_m'
+gem 'bigdecimal'
+gem 'wdm', '>= 0.1.0', platforms: [:mingw, :x64_mingw, :mswin]
+#gem 'rdoc', '~> 6.9'
+gem 'rdoc', '~> 6.10'
+# Ajoutez cette ligne dans votre Gemfile
+gem 'rails-controller-testing'
+
+
+gem 'rspec-rails', '~> 6.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
