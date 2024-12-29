@@ -52,9 +52,21 @@ gem 'wdm', '>= 0.1.0', platforms: [:mingw, :x64_mingw, :mswin]
 gem 'rdoc', '~> 6.10'
 # Ajoutez cette ligne dans votre Gemfile
 gem 'rails-controller-testing'
+gem 'bootstrap', '~> 5.0'
 
 
 gem 'rspec-rails', '~> 6.0'
+ gem 'devise'
+ gem 'omniauth'
+ gem 'omniauth-google-oauth2'
+ gem "omniauth-rails_csrf_protection", "~> 1.0"
+ 
+
+ gem 'sassc-rails'
+ gem 'dotenv-rails', groups: [:development, :test]
+
+ gem 'cssbundling-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +74,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'factory_bot_rails'
 
 end
 

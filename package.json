@@ -1,5 +1,8 @@
 {
   "name": "demo_blog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
+  }
 }

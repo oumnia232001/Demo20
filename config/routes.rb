@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  
   resources :posts do
-  	resources :comments
+    resources :comments, only: [:create, :show, :index] 
+  end
+#condt
+  authenticate :user do
+    resources :posts, only: [:edit, :update, :destroy] do
+      resources :comments, only: [:edit, :update, :destroy] 
+    end
   end
 
   root 'posts#index'
