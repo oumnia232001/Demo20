@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:create, :show, :index] 
   end
-#condt
+#cond
   authenticate :user do
     resources :posts, only: [:edit, :update, :destroy] do
       resources :comments, only: [:edit, :update, :destroy] 

@@ -5,8 +5,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy] 
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    if params[:query].present?
+      @posts = Post.where("title LIKE ? OR content LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").order("created_at DESC")
+    else
+      @posts = Post.all.order("created_at DESC")
+    end
   end
+  
 
   def new
     @post = Post.new
@@ -14,12 +19,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id  # Assurez-vous d'associer l'utilisateur connecté
+  
     if @post.title.present? && @post.content.present? && @post.save
       redirect_to @post
     else
       render 'new'
     end
   end
+  
 
   def show
     @post = Post.find(params[:id])

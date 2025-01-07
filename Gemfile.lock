@@ -105,6 +105,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
+    docile (1.4.1)
     dotenv (3.1.7)
     dotenv-rails (3.1.7)
       dotenv (= 3.1.7)
@@ -120,6 +121,8 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
@@ -217,6 +220,8 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    paranoia (3.0.0)
+      activerecord (>= 6, < 8.1)
     popper_js (2.11.8)
     pry (0.15.0)
       coderay (~> 1.1)
@@ -323,6 +328,12 @@ GEM
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov_json_formatter (0.1.4)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -384,6 +395,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
+  faker
   guard (~> 2.14, >= 2.14.1)
   guard-livereload (~> 2.5, >= 2.5.2)
   jbuilder (~> 2.5)
@@ -392,6 +404,7 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection (~> 1.0)
+  paranoia
   puma (~> 3.12)
   rails (~> 6.1)
   rails-controller-testing
@@ -401,6 +414,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form (~> 5.0)
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

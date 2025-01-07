@@ -12,6 +12,21 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+# for forgot password
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  port: 587,
+  domain: 'gmail.com',
+  user_name: 'oumniabenimran8@gmail.com',
+  password: 'saidassia19551970', 
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+config.action_mailer.default_options = { from: 'no-reply@votredomaine.com' }
+
+
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?

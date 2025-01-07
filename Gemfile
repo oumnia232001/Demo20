@@ -50,8 +50,9 @@ gem 'bigdecimal'
 gem 'wdm', '>= 0.1.0', platforms: [:mingw, :x64_mingw, :mswin]
 #gem 'rdoc', '~> 6.9'
 gem 'rdoc', '~> 6.10'
-# Ajoutez cette ligne dans votre Gemfile
+# for testing
 gem 'rails-controller-testing'
+
 gem 'bootstrap', '~> 5.0'
 
 
@@ -63,6 +64,7 @@ gem 'rspec-rails', '~> 6.0'
  
 
  gem 'sassc-rails'
+ #for recover the credentials from .env
  gem 'dotenv-rails', groups: [:development, :test]
 
  gem 'cssbundling-rails'
@@ -93,3 +95,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'paranoia' #for soft delet
+
+#for couvert test
+group :test do
+  gem 'simplecov', require: false
+   gem 'faker'
+end
